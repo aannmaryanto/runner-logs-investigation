@@ -1,12 +1,15 @@
+
 name: Release
 
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   create-release:
     runs-on: ubuntu-latest
-    # Intentional failure: Missing 'permissions: contents: write' block
 
     steps:
       - name: Checkout code
@@ -20,3 +23,4 @@ jobs:
             --title "Release v1.0.0" \
             --notes "Automated release from workflow" \
             --latest
+
